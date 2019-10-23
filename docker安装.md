@@ -29,3 +29,22 @@ ubuntu版本
   
 8.查看docker版本
   docker -v
+
+docker-compose安装(用于多个服务的启动)
+1.下载docker-compose
+  sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+2.授权
+  sudo chmod +x /usr/local/bin/docker-compose
+
+3.查看版本
+  docker-compose --version
+  
+  
+  
+  
+  
+  
+  
+  
+  
