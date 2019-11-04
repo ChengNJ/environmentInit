@@ -37,7 +37,7 @@ services:
     ports:
       - 9092:9092
     volumes:
-      - /Users/wjy/data/kafka:/kafka
+      - /data/kafka:/kafka
     environment:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=192.168.10.38
@@ -58,6 +58,6 @@ services:
     container_name: 'nginx'
     image: drookie/center-nginx:1.0
     volumes:
-      - /Users/wjy/data/aitensor:/home/aitensor
+      - /home/aitensor:/home/aitensor
     ports:
       - 80:80
