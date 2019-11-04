@@ -1,4 +1,4 @@
-version: '1.0'
+version: '2.0'
 services: 
   redis:
     container_name: 'redis'
@@ -7,6 +7,7 @@ services:
       - /data/redis:/data/redis
     ports:
       - 6379:6379
+
   mysql:
     container_name: 'mysql'
     image: drookie/center-mysql:1.0
@@ -14,6 +15,7 @@ services:
       - /data/mysql:/data/mysql
     ports:
       - 3306:3306
+
   mongodb:
     container_name: 'mongodb'
     image: drookie/center-mongodb:1.0
@@ -21,6 +23,7 @@ services:
       - /data/mongodb:/data/mongodb
     ports:
       - 27017:27017
+
   zookeeper:
     container_name: 'zookeeper'
     image: drookie/center-zookeeper:1.0
@@ -29,6 +32,7 @@ services:
       - /data/zookeeper/datalog:/datalog
     ports:
       - 2181:2181
+
   kafka:
     container_name: 'kafka'
     image: drookie/center-kafka:1.0
@@ -37,23 +41,37 @@ services:
     ports:
       - 9092:9092
     volumes:
-      - /data/kafka:/kafka
+      - /Users/wjy/data/kafka:/kafka
     environment:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=192.168.10.38
       - KAFKA_ADVERTISED_PORT=9092
+
   neo4j:
     container_name: 'neo4j'
     volumes:
+      - /data/neo4j/data:/data
     image: drookie/center-neo4j:1.0
     ports:
       - 7474:7474
       - 7687:7687
+
   nacos:
     container_name: 'nacos'
     image: drookie/center-nacos:1.0
+    environment:
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_DATABASE_NUM=1
+      - MYSQL_MASTER_SERVICE_HOST=mysql
+      - MYSQL_MASTER_SERVICE_PORT=3306
+      - MYSQL_MASTER_SERVICE_DB_NAME=nacos
+      - MYSQL_MASTER_SERVICE_USER=nacos
+      - MYSQL_MASTER_SERVICE_PASSWORD=nacos
+    links:
+      - mysql
     ports:
       - 8848:8848
+
   nginx:
     container_name: 'nginx'
     image: drookie/center-nginx:1.0
