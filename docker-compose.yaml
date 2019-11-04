@@ -1,44 +1,32 @@
-version: '2'
+version: '1.0'
 services: 
   redis:
     container_name: 'redis'
     image: drookie/center-redis:1.0
     volumes:
-      - /Users/wjy/data/redis:/data/redis
+      - /data/redis:/data/redis
     ports:
       - 6379:6379
   mysql:
     container_name: 'mysql'
     image: drookie/center-mysql:1.0
     volumes:
-      - /Users/wjy/data/mysql:/data/mysql
+      - /data/mysql:/data/mysql
     ports:
       - 3306:3306
   mongodb:
     container_name: 'mongodb'
     image: drookie/center-mongodb:1.0
     volumes: 
-      - /Users/wjy/data/mongodb:/data/mongodb
+      - /data/mongodb:/data/mongodb
     ports:
-      - 87017:87017
-  nginx:
-    container_name: 'nginx'
-    image: drookie/center-nginx:1.0
-    volumes:
-      - /Users/wjy/data/aitensor:/home/aitensor
-    ports:
-      - 80:80
-  nacos:
-    container_name: 'nacos'
-    image: drookie/center-nacos:1.0
-    ports:
-      - 8848:8848
+      - 27017:27017
   zookeeper:
     container_name: 'zookeeper'
     image: drookie/center-zookeeper:1.0
     volumes:
-      - /Users/wjy/data/zookeeper/data:/data
-      - /Users/wjy/data/zookeeper/datalog:/datalog
+      - /data/zookeeper/data:/data
+      - /data/zookeeper/datalog:/datalog
     ports:
       - 2181:2181
   kafka:
@@ -54,3 +42,22 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=192.168.10.38
       - KAFKA_ADVERTISED_PORT=9092
+  neo4j:
+    container_name: 'neo4j'
+    volumes:
+    image: drookie/center-neo4j:1.0
+    ports:
+      - 7474:7474
+      - 7687:7687
+  nacos:
+    container_name: 'nacos'
+    image: drookie/center-nacos:1.0
+    ports:
+      - 8848:8848
+  nginx:
+    container_name: 'nginx'
+    image: drookie/center-nginx:1.0
+    volumes:
+      - /Users/wjy/data/aitensor:/home/aitensor
+    ports:
+      - 80:80
