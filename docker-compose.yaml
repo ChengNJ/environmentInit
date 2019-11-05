@@ -55,6 +55,14 @@ services:
     ports:
       - 7474:7474
       - 7687:7687
+  gateway:
+    container_name: 'gateway'
+    image: drookie/center-apps-gateway:3.2
+    links:
+      - mysql
+      - nacos
+    ports:
+      - 9510:9510
 
   nacos:
     container_name: 'nacos'
@@ -81,3 +89,203 @@ services:
       - /home/aitensor:/home/aitensor
     ports:
       - 80:80
+
+  generic:
+    container_name: 'generic'
+    image: drookie/center-apps-generic:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+    ports:
+      - 9512:9512
+
+  auth:
+    container_name: 'auth'
+    image: drookie/center-apps-auth:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+    ports:
+      - 9513:9513
+
+  address:
+    container_name: 'address'
+    image: drookie/center-apps-address:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - neo4j
+    ports:
+      - 9524:9524
+
+  device:
+    container_name: 'device'
+    image: drookie/center-apps-device:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+    ports:
+      - 9525:9525
+
+  car:
+    container_name: 'car'
+    image: drookie/center-apps-car:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9531:9531
+
+  face-monitor:
+    container_name: 'face-monitor'
+    image: drookie/center-apps-face-monitor:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9530:9530
+
+  track:
+    container_name: 'track'
+    image: drookie/center-apps-track:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9528:9528
+
+  datapush:
+    container_name: 'datapush'
+    image: drookie/center-apps-datapush:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9526:9526
+
+  pms:
+    container_name: 'pms'
+    image: drookie/center-apps-pms:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9532:9532
+
+  video:
+    container_name: 'video'
+    image: drookie/center-apps-video:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9533:9533
+
+  open-api:
+    container_name: 'open-api'
+    image: drookie/center-apps-open-api:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+    ports:
+      - 9534:9534
+
+  face-recognize:
+    container_name: 'face-recognize'
+    image: drookie/center-apps-face-recognize:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9523:9523
+
+  police:
+    container_name: 'police'
+    image: drookie/center-apps-police:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - mongodb
+    ports:
+      - 9535:9535
+
+  search:
+    container_name: 'search'
+    image: drookie/center-apps-generic:3.2
+    volumes:
+      - /home/aitensor/lib:/home/aitensor/lib
+      - /home/aitensor/lunceneIndex:/home/aitensor/lunceneIndex
+    ports:
+      - 9536:9536
+
+  
+
+
+
+
+
+
+
+
+
+
+
