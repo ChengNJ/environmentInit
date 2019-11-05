@@ -59,6 +59,8 @@ services:
   nacos:
     container_name: 'nacos'
     image: drookie/center-nacos:1.0
+    volumes:
+      - /data/mysql:/data/sql
     environment:
       - SPRING_DATASOURCE_PLATFORM=mysql
       - MYSQL_DATABASE_NUM=1
