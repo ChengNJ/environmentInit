@@ -41,7 +41,7 @@ services:
     ports:
       - 9092:9092
     volumes:
-      - /Users/wjy/data/kafka:/kafka
+      - /data/kafka:/kafka
     environment:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=192.168.10.38
