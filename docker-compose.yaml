@@ -69,8 +69,9 @@ services:
     image: drookie/center-nacos:1.0
     volumes:
       - /data/nacos/logs:/home/nacos/logs
+      - /data/nacos/data:/home/nacos/data
     environment:
-      - MODE=standalon
+      - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
       - MYSQL_DATABASE_NUM=1
       - MYSQL_MASTER_SERVICE_HOST=mysql
