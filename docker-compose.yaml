@@ -58,6 +58,8 @@ services:
   gateway:
     container_name: 'gateway'
     image: drookie/center-apps-gateway:3.2
+    volumes:
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -97,6 +99,7 @@ services:
     image: drookie/center-apps-generic:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -110,6 +113,7 @@ services:
     image: drookie/center-apps-auth:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -123,6 +127,7 @@ services:
     image: drookie/center-apps-address:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -137,6 +142,7 @@ services:
     image: drookie/center-apps-device:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -150,6 +156,7 @@ services:
     image: drookie/center-apps-car:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -164,6 +171,7 @@ services:
     image: drookie/center-apps-face-monitor:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -178,6 +186,7 @@ services:
     image: drookie/center-apps-track:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -192,6 +201,7 @@ services:
     image: drookie/center-apps-datapush:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -206,6 +216,7 @@ services:
     image: drookie/center-apps-pms:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -220,6 +231,7 @@ services:
     image: drookie/center-apps-video:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -234,6 +246,7 @@ services:
     image: drookie/center-apps-open-api:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -247,6 +260,7 @@ services:
     image: drookie/center-apps-face-recognize:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -261,6 +275,7 @@ services:
     image: drookie/center-apps-police:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
     links:
       - mysql
       - nacos
@@ -275,7 +290,8 @@ services:
     image: drookie/center-apps-generic:3.2
     volumes:
       - /home/aitensor/lib:/home/aitensor/lib
-      - /home/aitensor/lunceneIndex:/home/aitensor/lunceneIndex
+      - /home/aitensor/luceneIndex:/home/aitensor/luceneIndex
+      - /data/apps/logs:/logs
     ports:
       - 9536:9536
 
