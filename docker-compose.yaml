@@ -3,6 +3,9 @@ services:
   redis:
     container_name: 'redis'
     image: drookie/center-redis:1.0
+    command:
+      - redis-server
+      - /etc/redis.conf
     volumes:
       - /data/redis/redis_lib:/data/redis/redis_lib
       - /data/redis/redis_log:/data/redis/redis_log
