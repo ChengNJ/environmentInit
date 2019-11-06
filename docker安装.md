@@ -14,13 +14,25 @@
     software-properties-common
 
 4.添加官方密钥
+  建议用下面的国内源
+  curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+  以下为官方
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  
 
 5.添加仓库
-  sudo add-apt-repository \\
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \\
-   $(lsb_release -cs) \\
+   建议用下面的国内源
+   sudo add-apt-repository \
+   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+   $(lsb_release -cs) \
    stable"
+   
+   以下为官方
+  sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+   
 
 6.再次更新软件
   sudo apt-get update
