@@ -114,6 +114,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
     ports:
       - 9512:9512
 
@@ -128,6 +129,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
     ports:
       - 9513:9513
 
@@ -142,6 +144,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - neo4j
     ports:
       - 9524:9524
@@ -157,6 +160,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
     ports:
       - 9525:9525
 
@@ -171,6 +175,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9531:9531
@@ -186,6 +191,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9530:9530
@@ -201,6 +207,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9528:9528
@@ -216,6 +223,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9526:9526
@@ -231,6 +239,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9532:9532
@@ -246,6 +255,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9533:9533
@@ -261,6 +271,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
     ports:
       - 9534:9534
 
@@ -275,6 +286,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9523:9523
@@ -290,6 +302,7 @@ services:
       - nacos
       - redis
       - kafka
+      - zookeeper
       - mongodb
     ports:
       - 9535:9535
