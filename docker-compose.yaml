@@ -49,8 +49,12 @@ services:
       - /data/kafka:/kafka
     environment:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_ADVERTISED_HOST_NAME=192.168.10.38
+      - KAFKA_ADVERTISED_HOST_NAME=kafka
       - KAFKA_ADVERTISED_PORT=9092
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://:9092
+
 
   neo4j:
     container_name: 'neo4j'
