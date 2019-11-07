@@ -7,6 +7,7 @@ services:
       - redis-server
       - /etc/redis.conf
     volumes:
+      - /etc/localtime:/etc/localtime
       - /data/redis/redis_lib:/data/redis/redis_lib
       - /data/redis/redis_log:/data/redis/redis_log
     ports:
@@ -16,6 +17,7 @@ services:
     container_name: 'mysql'
     image: drookie/center-mysql:1.0
     volumes:
+      - /etc/localtime:/etc/localtime
       - /data/mysql/mysql_data:/data/mysql/mysql_data
       - /data/mysql/mysql_log:/data/mysql/mysql_log
     ports:
@@ -25,6 +27,7 @@ services:
     container_name: 'mongodb'
     image: drookie/center-mongodb:1.0
     volumes: 
+      - /etc/localtime:/etc/localtime
       - /data/mongodb:/data/mongodb
     ports:
       - 27017:27017
@@ -33,6 +36,7 @@ services:
     container_name: 'zookeeper'
     image: drookie/center-zookeeper:1.0
     volumes:
+      - /etc/localtime:/etc/localtime
       - /data/zookeeper/data:/data
       - /data/zookeeper/datalog:/datalog
     ports:
@@ -46,6 +50,7 @@ services:
     ports:
       - 9092:9092
     volumes:
+      - /etc/localtime:/etc/localtime
       - /data/kafka:/kafka
     environment:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
@@ -59,15 +64,18 @@ services:
   neo4j:
     container_name: 'neo4j'
     volumes:
+      - /etc/localtime:/etc/localtime
       - /data/neo4j/data:/data
     image: drookie/center-neo4j:1.0
     ports:
       - 7474:7474
       - 7687:7687
+      
   gateway:
     container_name: 'gateway'
     image: drookie/center-apps-gateway:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /data/apps/logs:/logs
     links:
       - mysql
@@ -79,6 +87,7 @@ services:
     container_name: 'nacos'
     image: drookie/center-nacos:1.0
     volumes:
+      - /etc/localtime:/etc/localtime
       - /data/nacos/logs:/home/nacos/logs
       - /data/nacos/data:/home/nacos/data
     environment:
@@ -99,6 +108,7 @@ services:
     container_name: 'nginx'
     image: drookie/center-nginx:1.0
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor:/home/aitensor
     links:
       - gateway
@@ -110,6 +120,7 @@ services:
     container_name: 'generic'
     image: drookie/center-apps-generic:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -125,6 +136,7 @@ services:
     container_name: 'auth'
     image: drookie/center-apps-auth:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -140,6 +152,7 @@ services:
     container_name: 'address'
     image: drookie/center-apps-address:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -156,6 +169,7 @@ services:
     container_name: 'device'
     image: drookie/center-apps-device:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -171,6 +185,7 @@ services:
     container_name: 'car'
     image: drookie/center-apps-car:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -187,6 +202,7 @@ services:
     container_name: 'face-monitor'
     image: drookie/center-apps-face-monitor:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -203,6 +219,7 @@ services:
     container_name: 'track'
     image: drookie/center-apps-track:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -219,6 +236,7 @@ services:
     container_name: 'datapush'
     image: drookie/center-apps-datapush:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -235,6 +253,7 @@ services:
     container_name: 'pms'
     image: drookie/center-apps-pms:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -251,6 +270,7 @@ services:
     container_name: 'video'
     image: drookie/center-apps-video:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -267,6 +287,7 @@ services:
     container_name: 'open-api'
     image: drookie/center-apps-open-api:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -282,6 +303,7 @@ services:
     container_name: 'face-recognize'
     image: drookie/center-apps-face-recognize:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -298,6 +320,7 @@ services:
     container_name: 'police'
     image: drookie/center-apps-police:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -314,6 +337,7 @@ services:
     container_name: 'search'
     image: drookie/center-apps-generic:3.2
     volumes:
+      - /etc/localtime:/etc/localtime
       - /home/aitensor/lib:/home/aitensor/lib
       - /home/aitensor/luceneIndex:/home/aitensor/luceneIndex
       - /data/apps/logs:/logs
