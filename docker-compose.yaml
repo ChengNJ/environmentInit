@@ -391,3 +391,5 @@ services:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
       - /data/apps/logs:/logs
+    ports:
+      - 9999:9999
