@@ -380,3 +380,7 @@ services:
       - /data/files:/data/files
     ports:
       - 9536:9536
+      
+  map:
+    container_name: 'map'
+    image: hello-world
