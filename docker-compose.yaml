@@ -111,21 +111,6 @@ services:
     ports:
       - 8848:8848
 
-  nginx:
-    container_name: 'nginx'
-    image: drookie/center-nginx:1.0
-    volumes:
-      - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
-      - /home/aitensor:/home/aitensor
-      - /data/files:/data/files
-    links:
-      - gateway
-      - datapush
-      - map
-    ports:
-      - 80:80
-
   generic:
     container_name: 'generic'
     image: drookie/center-apps-generic:3.2
@@ -393,3 +378,18 @@ services:
       - /data/apps/logs:/logs
     ports:
       - 9999:9999
+      
+  nginx:
+    container_name: 'nginx'
+    image: drookie/center-nginx:1.0
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /home/aitensor:/home/aitensor
+      - /data/files:/data/files
+    links:
+      - gateway
+      - datapush
+      - map
+    ports:
+      - 80:80
