@@ -383,4 +383,11 @@ services:
       
   map:
     container_name: 'map'
-    image: hello-world
+    image: drookie/center-apps-map:1.0
+    links:
+      - mysql
+      - mongodb
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/apps/logs:/logs
