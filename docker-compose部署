@@ -1,0 +1,10 @@
+## 建立aitensor
+用 id aitensor 看是否存在该用户
+如果不存在，使用sudo adduser aitensor 创建用户。adduser：会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。
+
+##新建docker-compose.yaml文件（后续从网上直接拉取）
+修改里面的kafka的配置 将ip改成服务器的ip，如果是给外网访问，需要配置公网ip
+
+##拉取镜像，构建容器
+在/home/aitensor目录下使用docker-compose up -d 命令，会开始拉取镜像，并启动
+
