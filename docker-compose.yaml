@@ -396,7 +396,7 @@ services:
       
   nginx:
     container_name: 'nginx'
-    image: drookie/center-nginx:1.0
+    image: drookie/center-nginx:1.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
