@@ -117,6 +117,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
     links:
@@ -134,6 +135,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -152,6 +154,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -171,6 +174,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -189,6 +193,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -208,6 +213,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -227,6 +233,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -246,6 +253,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -265,6 +273,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -284,6 +293,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -303,6 +313,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -321,6 +332,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -340,6 +352,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
@@ -359,6 +372,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /home/aitensor/luceneIndex:/home/aitensor/luceneIndex
       - /data/apps/logs:/logs
@@ -375,6 +389,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /data/apps/logs:/logs
     ports:
       - 9999:9999
