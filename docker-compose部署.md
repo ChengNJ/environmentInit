@@ -45,5 +45,26 @@ scp -P port -rf lib aitensor:ip/home/aitensor/
 远程可使用scp进行拷贝
 scp -P port -rf vue aitensor:ip/home/aitensor/apps/vue
 
+## 添加hosts
+编辑在/etc/hosts 追加以下内容 并将ip改成宿机ip
+192.168.1.13       mysql.aitensor.com
+192.168.1.13      mongodb.aitensor.com
+192.168.1.13      redis.aitensor.com
+192.168.1.13   kafka.aitensor.com
+192.168.1.13    regcenter.aitensor.com
+192.168.1.13    fastdfs.aitensor.com
+192.168.1.13    neo4j.aitensor.com
+
+
+
+
+
+
+
+
+
+
+
+## 启动完后 需要修改nginx 下的加密狗连接
 
 
