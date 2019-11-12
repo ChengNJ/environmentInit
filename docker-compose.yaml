@@ -419,6 +419,7 @@ services:
       - /home/aitensor:/home/aitensor
       - /data/files:/data/files
       - /data/files/images:/home/aitensor/images
+      - /data/nginx:/var/log/nginx
     links:
       - gateway
       - datapush
