@@ -2,9 +2,9 @@
 为了加快软件的安装，需要修改apt配置，使用国内源  
 这边使用阿里，也可以使用清华、中科大等  
 备份原来的源：  
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak  
+>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak  
 更换源:  
-sudo rm /etc/apt/sources.list  
+>sudo rm /etc/apt/sources.list  
 sudo vim /etc/apt/sources.list  
 将以下内容复制进去，保存  
 
