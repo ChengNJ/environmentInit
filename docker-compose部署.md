@@ -66,3 +66,7 @@ cd /home/aitensor
 sudo docker-compose up -d
 即可后台启动所有配置服务
 
+## 调整配置
+基础配置
+模型配置
+
