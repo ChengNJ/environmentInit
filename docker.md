@@ -10,8 +10,8 @@ sudo vim /etc/apt/sources.list
 
 
 >#deb包
->deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
->deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
 ##测试版源  
@@ -25,15 +25,15 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted unive
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
 
 
-执行更新  sudo apt-get update
-此时可以看到已经是使用阿里的镜像源
+执行更新  sudo apt-get update  
+此时可以看到已经是使用阿里的镜像源  
 
 ## docker 安装
-1.卸载旧版docker（如果是全新安装的系统，无需执行）
-  sudo apt-get remove docker docker-engine docker.io
+1.卸载旧版docker（如果是全新安装的系统，无需执行）  
+  >sudo apt-get remove docker docker-engine docker.io
 
-2.更新系统软件
-  sudo apt-get update
+2.更新系统软件  
+  >sudo apt-get update
   
 3.安装依赖包
   sudo apt-get install -y \
