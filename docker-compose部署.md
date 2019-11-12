@@ -4,7 +4,7 @@ dfish -h 查看外挂硬盘是否挂载到/data下，没有的话进行挂载
 ## 建立数据文件夹
 为了避免权限问题，手动建立文件夹
 切换到root用户执行
-sudo mkdir -p /data/apps/logs
+sudo mkdir -p /data/apps/logs\n
 sudo mkdir -p /data/files
 sudo mkdir -p /data/files/images
 sudo mkdir -p /data/files/images/video
