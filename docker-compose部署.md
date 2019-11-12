@@ -61,5 +61,8 @@ scp -P port -rf vue aitensor:ip/home/aitensor/apps/vue
 192.168.1.13    neo4j.aitensor.com
 
 ## 用root使用docker-compose 进行启动
-
+#切换到docker-compose的目录下
+cd /home/aitensor
+sudo docker-compose up -d
+即可后台启动所有配置服务
 
