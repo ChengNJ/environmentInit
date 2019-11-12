@@ -13,6 +13,7 @@ services:
       - /data/redis/redis_log:/data/redis/redis_log
     ports:
       - 6379:6379
+    restart: always
 
   mysql:
     container_name: 'mysql'
@@ -24,6 +25,7 @@ services:
       - /data/mysql/mysql_log:/data/mysql/mysql_log
     ports:
       - 3306:3306
+    restart: always
 
   mongodb:
     container_name: 'mongodb'
@@ -34,6 +36,7 @@ services:
       - /data/mongodb:/data/mongodb
     ports:
       - 27017:27017
+    restart: always
 
   zookeeper:
     container_name: 'zookeeper'
@@ -45,6 +48,7 @@ services:
       - /data/zookeeper/datalog:/datalog
     ports:
       - 2181:2181
+    restart: always
 
   kafka:
     container_name: 'kafka'
@@ -64,6 +68,7 @@ services:
       - KAFKA_LISTENERS=INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:9094
       - KAFKA_ADVERTISED_LISTENERS=INSIDE://:9092,OUTSIDE://192.168.10.38:9094
       - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+    restart: always
 
   neo4j:
     container_name: 'neo4j'
@@ -75,6 +80,7 @@ services:
     ports:
       - 7474:7474
       - 7687:7687
+    restart: always
       
   gateway:
     container_name: 'gateway'
@@ -89,6 +95,7 @@ services:
       - nacos
     ports:
       - 9510:9510
+    restart: always
 
   nacos:
     container_name: 'nacos'
@@ -111,6 +118,7 @@ services:
       - mysql
     ports:
       - 8848:8848
+    restart: always
 
   generic:
     container_name: 'generic'
@@ -130,6 +138,7 @@ services:
       - zookeeper
     ports:
       - 9512:9512
+    restart: always
 
   auth:
     container_name: 'auth'
@@ -150,6 +159,7 @@ services:
       - zookeeper
     ports:
       - 9513:9513
+    restart: always
 
   address:
     container_name: 'address'
@@ -171,6 +181,7 @@ services:
       - neo4j
     ports:
       - 9524:9524
+    restart: always
 
   device:
     container_name: 'device'
@@ -191,6 +202,7 @@ services:
       - zookeeper
     ports:
       - 9525:9525
+    restart: always
 
   car:
     container_name: 'car'
@@ -212,6 +224,7 @@ services:
       - mongodb
     ports:
       - 9531:9531
+    restart: always
 
   face-monitor:
     container_name: 'face-monitor'
@@ -233,6 +246,7 @@ services:
       - mongodb
     ports:
       - 9530:9530
+    restart: always
 
   track:
     container_name: 'track'
@@ -254,6 +268,7 @@ services:
       - mongodb
     ports:
       - 9528:9528
+    restart: always
 
   datapush:
     container_name: 'datapush'
@@ -275,6 +290,7 @@ services:
       - mongodb
     ports:
       - 9526:9526
+    restart: always
 
   pms:
     container_name: 'pms'
@@ -296,6 +312,7 @@ services:
       - mongodb
     ports:
       - 9532:9532
+    restart: always
 
   video:
     container_name: 'video'
@@ -317,6 +334,7 @@ services:
       - mongodb
     ports:
       - 9533:9533
+    restart: always
 
   open-api:
     container_name: 'open-api'
@@ -337,6 +355,7 @@ services:
       - zookeeper
     ports:
       - 9534:9534
+    restart: always
 
   face-recognize:
     container_name: 'face-recognize'
@@ -358,6 +377,7 @@ services:
       - mongodb
     ports:
       - 9523:9523
+    restart: always
 
   police:
     container_name: 'police'
@@ -379,6 +399,7 @@ services:
       - mongodb
     ports:
       - 9535:9535
+    restart: always
 
   search:
     container_name: 'search'
@@ -394,6 +415,7 @@ services:
       - /data/files/images:/home/aitensor/images
     ports:
       - 9536:9536
+    restart: always
       
   map:
     container_name: 'map'
@@ -409,6 +431,7 @@ services:
       - /data/files/images:/home/aitensor/images
     ports:
       - 9999:9999
+    restart: always
       
   nginx:
     container_name: 'nginx'
@@ -432,3 +455,4 @@ services:
       - IMAGES_HOME=/data/files/images/
     ports:
       - 80:80
+    restart: always
