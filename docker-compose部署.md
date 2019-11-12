@@ -6,6 +6,7 @@ dfish -h 查看外挂硬盘是否挂载到/data下，没有的话进行挂载
 切换到root用户执行
 sudo mkdir -p /data/apps/logs
 sudo mkdir -p /data/files
+sudo mkdir -p /data/files/images
 sudo mkdir -p /data/kafka
 sudo mkdir -p /data/zookeeper/data
 sudo mkdir -p /data/zookeeper/datalog
