@@ -8,8 +8,7 @@ sudo rm /etc/apt/sources.list
 sudo vim /etc/apt/sources.list  
 将以下内容复制进去，保存  
 
-
->#deb包
+>#deb包  
 deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse  
 deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse  
 deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse  
@@ -23,7 +22,6 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted univers
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse  
 #测试版源  
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse  
-
 
 执行更新  sudo apt-get update  
 此时可以看到已经是使用阿里的镜像源  
