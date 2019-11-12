@@ -4,30 +4,30 @@ dfish -h 查看外挂硬盘是否挂载到/data下，没有的话进行挂载
 ## 建立数据文件夹
 为了避免权限问题，手动建立文件夹
 切换到root用户执行
-sudo mkdir -p /data/apps/logs\n
-sudo mkdir -p /data/files
-sudo mkdir -p /data/files/images
-sudo mkdir -p /data/files/images/video
-sudo mkdir -p /data/kafka
-sudo mkdir -p /data/zookeeper/data
-sudo mkdir -p /data/zookeeper/datalog
-sudo mkdir -p /data/mongodb
-sudo mkdir -p /data/mysql/mysql_data
-sudo mkdir -p /data/mysql/mysql_log
-sudo mkdir -p /data/nacos/data
-sudo mkdir -p /data/nacos/logs
-sudo mkdir -p /data/neo4j/data
-sudo mkdir -p /data/nginx
+sudo mkdir -p /data/apps/logs  
+sudo mkdir -p /data/files  
+sudo mkdir -p /data/files/images  
+sudo mkdir -p /data/files/images/video  
+sudo mkdir -p /data/kafka  
+sudo mkdir -p /data/zookeeper/data  
+sudo mkdir -p /data/zookeeper/datalog  
+sudo mkdir -p /data/mongodb  
+sudo mkdir -p /data/mysql/mysql_data  
+sudo mkdir -p /data/mysql/mysql_log  
+sudo mkdir -p /data/nacos/data  
+sudo mkdir -p /data/nacos/logs  
+sudo mkdir -p /data/neo4j/data  
+sudo mkdir -p /data/nginx  
 
-sudo chown -R 999:999 /data/apps
-sudo chown -R 999:999 /data/files
-sudo chown -R 999:999 /data/kafka
-sudo chown -R 999:999 /data/zookeeper
-sudo chown -R 999:999 /data/mongodb
-sudo chown -R 999:999 /data/mysql
-sudo chown -R 999:999 /data/nacos
-sudo chown -R 999:999 /data/neo4j
-sudo chown -R 999:999 /data/nginx
+sudo chown -R 999:999 /data/apps  
+sudo chown -R 999:999 /data/files  
+sudo chown -R 999:999 /data/kafka  
+sudo chown -R 999:999 /data/zookeeper  
+sudo chown -R 999:999 /data/mongodb  
+sudo chown -R 999:999 /data/mysql  
+sudo chown -R 999:999 /data/nacos  
+sudo chown -R 999:999 /data/neo4j  
+sudo chown -R 999:999 /data/nginx  
 ## 建立aitensor
 用 id aitensor 看是否存在该用户
 如果不存在，使用sudo adduser aitensor 创建用户。adduser：会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。
