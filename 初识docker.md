@@ -24,9 +24,10 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted unive
 #测试版源  
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse  
 
-执行更新  sudo apt-get update  
-此时可以看到已经是使用阿里的镜像源  
+执行更新  
+>sudo apt-get update  
 
+此时可以看到已经是使用阿里的镜像源  
 ## docker 安装
 1.卸载旧版docker（如果是全新安装的系统，无需执行）  
   >sudo apt-get remove docker docker-engine docker.io
@@ -35,63 +36,59 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted univer
   >sudo apt-get update
   
 3.安装依赖包  
-> sudo apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
+> sudo apt-get install -y \\
+    apt-transport-https \\
+    ca-certificates \\
+    curl \\
     software-properties-common
-
-
+    
 4.添加官方密钥  
   建议用下面的国内源,下载会更快  
   > curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
   
-  
   以下为官方
   > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  
   
   执行可能需要小等一会，会出现ok  
 5.添加仓库  
    建议用下面的国内源  
-   > sudo add-apt-repository \
-   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
-   $(lsb_release -cs) \
+   > sudo add-apt-repository \\
+   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \\
+   $(lsb_release -cs) \\
    stable"
    
    以下为官方
-  > sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
+  > sudo add-apt-repository \\
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \\
+   $(lsb_release -cs) \\
    stable"
    
+6.再次更新软件  
+  >sudo apt-get update  
 
-6.再次更新软件
-  sudo apt-get update
-
-7.安装docker
-  sudo apt-get install -y docker-ce
+7.安装docker  
+  >sudo apt-get install -y docker-ce  
   
-  静等下载安装完成。
-8.查看docker版本
-  docker -v
+  静等下载安装完成。  
+8.查看docker版本  
+  >docker -v  
 
-## docker-compose安装(用于多个服务的启动)
-可以使用apt安装，也采用python方式安装
+## docker-compose安装(用于多个服务的启动)  
+可以使用apt安装，也采用python方式安装  
 apt：
-sudo apt-get install -y docker-compose
+>sudo apt-get install -y docker-compose
 
 python:
 1.装pip
-  sudo apt-get install -y python-pip
-  sudo pip install --upgrade setuptools
-  sudo pip install --upgrade pip
+  >sudo apt-get install -y python-pip  
+  sudo pip install --upgrade setuptools  
+  sudo pip install --upgrade pip  
 
-2.安装docker-compose
-  sudo pip install docker-compose
+2.安装docker-compose  
+  >sudo pip install docker-compose  
   
-查看版本
-  docker-compose --version
+查看版本  
+  >docker-compose --version  
   
   
   
