@@ -34,31 +34,33 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted univer
 2.更新系统软件  
   >sudo apt-get update
   
-3.安装依赖包
-  :    sudo apt-get install -y \
+3.安装依赖包  
+> sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
     software-properties-common
 
 
-4.添加官方密钥
-  建议用下面的国内源,下载会更快
-  curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
-  以下为官方
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+4.添加官方密钥  
+  建议用下面的国内源,下载会更快  
+  > curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
   
-  执行可能需要小等一会，会出现ok
-
-5.添加仓库
-   建议用下面的国内源
-   sudo add-apt-repository \
+  
+  以下为官方
+  > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  
+  
+  执行可能需要小等一会，会出现ok  
+5.添加仓库  
+   建议用下面的国内源  
+   > sudo add-apt-repository \
    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
    
    以下为官方
-  sudo add-apt-repository \
+  > sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
