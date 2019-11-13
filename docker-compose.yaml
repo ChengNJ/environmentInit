@@ -89,7 +89,7 @@ services:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
       - /data/apps/logs:/logs
-      - /data/files/images:/home/aitensor/images
+      - /data/files:/data/files
     links:
       - mysql
       - nacos
@@ -129,7 +129,6 @@ services:
       - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -150,7 +149,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -171,7 +169,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -193,7 +190,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -214,7 +210,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -236,7 +231,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -258,7 +252,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -280,7 +273,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -302,7 +294,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -324,7 +315,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -346,7 +336,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -367,7 +356,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -389,7 +377,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     links:
       - mysql
       - nacos
@@ -412,7 +399,6 @@ services:
       - /home/aitensor/luceneIndex:/home/aitensor/luceneIndex
       - /data/apps/logs:/logs
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
     ports:
       - 9536:9536
     restart: always
@@ -428,7 +414,6 @@ services:
       - /etc/localtime:/etc/localtime
       - /etc/hosts:/etc/hosts
       - /data/apps/logs:/logs
-      - /data/files/images:/home/aitensor/images
     ports:
       - 9999:9999
     restart: always
@@ -441,7 +426,6 @@ services:
       - /etc/localtime:/etc/localtime
       - /home/aitensor:/home/aitensor
       - /data/files:/data/files
-      - /data/files/images:/home/aitensor/images
       - /data/nginx:/var/log/nginx
     links:
       - gateway
@@ -452,7 +436,7 @@ services:
       - VUE_HOME=/home/aitensor/apps/vue
       - MOCK_URL=http://192.168.10.118:3300
       - LOCAL_FILES_HOME=/data/files/
-      - IMAGES_HOME=/data/files/images/
+      - IMAGES_HOME=/data/files/images
     ports:
       - 80:80
     restart: always
