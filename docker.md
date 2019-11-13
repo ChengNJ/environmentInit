@@ -35,11 +35,12 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted univer
   >sudo apt-get update
   
 3.安装依赖包
-  sudo apt-get install -y \
+  :    sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
     software-properties-common
+
 
 4.添加官方密钥
   建议用下面的国内源,下载会更快
