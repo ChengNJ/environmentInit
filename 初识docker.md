@@ -57,24 +57,24 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
     
 4.添加官方密钥  
   建议用下面的国内源,下载会更快  
-  > curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+  > sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
   
   以下为官方
-  > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  > sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   
   执行可能需要小等一会，会出现ok  
 5.添加仓库  
    建议用下面的国内源  
-   > sudo add-apt-repository \\
-   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \\
-   $(lsb_release -cs) \\
+   > sudo add-apt-repository \\  
+   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \\  
+   $(lsb_release -cs) \\  
    stable"
    
    以下为官方
-  > sudo add-apt-repository \\
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \\
-   $(lsb_release -cs) \\
-   stable"
+  > sudo add-apt-repository \\  
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \\  
+   $(lsb_release -cs) \\  
+   stable"  
    
 6.再次更新软件  
   >sudo apt-get update  
