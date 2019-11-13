@@ -18,6 +18,8 @@ sudo mkdir -p /data/nacos/data
 sudo mkdir -p /data/nacos/logs  
 sudo mkdir -p /data/neo4j/data  
 sudo mkdir -p /data/nginx  
+sudo mkdir -p /data/redis/redis_lib  
+sudo mkdir -p /data/redis/redis_log  
 
 sudo chown -R 999:999 /data/apps  
 sudo chown -R 999:999 /data/files  
@@ -28,6 +30,8 @@ sudo chown -R 999:999 /data/mysql
 sudo chown -R 999:999 /data/nacos  
 sudo chown -R 999:999 /data/neo4j  
 sudo chown -R 999:999 /data/nginx  
+sudo chown -R 999:999 /data/redis  
+
 ## 建立aitensor
 用 id aitensor 看是否存在该用户
 如果不存在，使用sudo adduser aitensor 创建用户。adduser：会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。
