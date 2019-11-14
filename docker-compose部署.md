@@ -21,23 +21,19 @@ sudo mkdir -p /data/nginx
 sudo mkdir -p /data/redis/redis_lib  
 sudo mkdir -p /data/redis/redis_log  
 
-sudo chown -R 999:999 /data/apps  
-sudo chown -R 999:999 /data/files  
-sudo chown -R 999:999 /data/kafka  
-sudo chown -R 999:999 /data/zookeeper  
-sudo chown -R 999:999 /data/mongodb  
-sudo chown -R 999:999 /data/mysql  
-sudo chown -R 999:999 /data/nacos  
-sudo chown -R 999:999 /data/neo4j  
-sudo chown -R 999:999 /data/nginx  
-sudo chown -R 999:999 /data/redis  
-
-## 建立aitensor
-用 id aitensor 看是否存在该用户
-如果不存在，使用sudo adduser aitensor 创建用户。adduser：会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。
+sudo chown -R docker:docker /data/apps  
+sudo chown -R docker:docker /data/files  
+sudo chown -R docker:docker /data/kafka  
+sudo chown -R docker:docker /data/zookeeper  
+sudo chown -R docker:docker /data/mongodb  
+sudo chown -R docker:docker /data/mysql  
+sudo chown -R docker:docker /data/nacos  
+sudo chown -R docker:docker /data/neo4j  
+sudo chown -R docker:docker /data/nginx  
+sudo chown -R docker:docker /data/redis  
 
 ## 新建docker-compose.yaml文件（后续从网上直接拉取）
-在/home/a
+在/home/docker
 修改里面的kafka的配置 将ip改成服务器的ip，如果是给外网访问，需要配置公网ip
 修改nginx 的配置,使宿机要开放的端口映射到容器的80端口 以及环境变量的配置
 
