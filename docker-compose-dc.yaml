@@ -1,1 +1,219 @@
+version: '2.0'
+services: 
+  redis:
+    container_name: 'redis'
+    image: drookie/center-redis:1.0
+    command:
+      - redis-server
+      - /etc/redis.conf
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/redis/redis_lib:/data/redis/redis_lib
+      - /data/redis/redis_log:/data/redis/redis_log
+    ports:
+      - 6379:6379
+    restart: always
 
+  mysql:
+    container_name: 'mysql'
+    image: drookie/center-mysql:1.0
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/mysql/mysql_data:/data/mysql/mysql_data
+      - /data/mysql/mysql_log:/data/mysql/mysql_log
+    ports:
+      - 3306:3306
+    restart: always
+
+  mongodb:
+    container_name: 'mongodb'
+    image: drookie/center-mongodb:1.0
+    volumes: 
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/mongodb:/data/mongodb
+    ports:
+      - 27017:27017
+    restart: always
+
+  zookeeper:
+    container_name: 'zookeeper'
+    image: drookie/center-zookeeper:1.0
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/zookeeper/data:/data
+      - /data/zookeeper/datalog:/datalog
+    ports:
+      - 2181:2181
+    restart: always
+
+  kafka:
+    container_name: 'kafka'
+    image: drookie/center-kafka:1.0
+    links:
+      - zookeeper
+    ports:
+      - 9092:9092
+      - 9094:9094
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/kafka:/kafka
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      - KAFKA_LISTENERS=INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:9094
+      - KAFKA_ADVERTISED_LISTENERS=INSIDE://:9092,OUTSIDE://192.168.10.38:9094
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+    restart: always
+
+  neo4j:
+    container_name: 'neo4j'
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/neo4j/data:/data
+    image: drookie/center-neo4j:1.0
+    ports:
+      - 7474:7474
+      - 7687:7687
+    restart: always
+      
+  gateway:
+    container_name: 'gateway'
+    image: drookie/dc-apps-gateway:3.2
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/apps/logs:/logs
+      - /data/files:/data/files
+    links:
+      - mysql
+      - nacos
+    ports:
+      - 9510:9510
+    restart: always
+
+  nacos:
+    container_name: 'nacos'
+    image: drookie/center-nacos:1.0
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/nacos/logs:/home/nacos/logs
+      - /data/nacos/data:/home/nacos/data
+    environment:
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_DATABASE_NUM=1
+      - MYSQL_MASTER_SERVICE_HOST=mysql
+      - MYSQL_MASTER_SERVICE_PORT=3306
+      - MYSQL_MASTER_SERVICE_DB_NAME=nacos
+      - MYSQL_MASTER_SERVICE_USER=nacos
+      - MYSQL_MASTER_SERVICE_PASSWORD=nacos
+    links:
+      - mysql
+    ports:
+      - 8848:8848
+    restart: always
+
+  generic:
+    container_name: 'generic'
+    image: drookie/dc-apps-generic:3.2
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - zookeeper
+    ports:
+      - 9512:9512
+    restart: always
+
+  auth:
+    container_name: 'auth'
+    image: drookie/dc-apps-auth:3.2
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
+      - /data/files:/data/files
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - zookeeper
+    ports:
+      - 9513:9513
+    restart: always
+
+  address:
+    container_name: 'address'
+    image: drookie/dc-apps-address:3.2
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /home/aitensor/lib:/home/aitensor/lib
+      - /data/apps/logs:/logs
+      - /data/files:/data/files
+    links:
+      - mysql
+      - nacos
+      - redis
+      - kafka
+      - zookeeper
+      - neo4j
+    ports:
+      - 9524:9524
+    restart: always
+      
+  map:
+    container_name: 'map'
+    image: drookie/center-apps-map:1.0
+    links:
+      - mysql
+      - mongodb
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /data/apps/logs:/logs
+    ports:
+      - 9999:9999
+    restart: always
+      
+  nginx:
+    container_name: 'nginx'
+    image: drookie/center-nginx:1.1
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /home/aitensor:/home/aitensor
+      - /data/files:/data/files
+      - /data/nginx:/var/log/nginx
+    links:
+      - gateway
+      - datapush
+      - map
+    environment:
+      - USB_KEY_URL=http://120.24.223.92:50036/
+      - VUE_HOME=/home/aitensor/apps/vue
+      - MOCK_URL=http://192.168.10.118:3300
+      - LOCAL_FILES_HOME=/data/files/images/
+      - IMAGES_HOME=/data/files/images/
+    ports:
+      - 80:80
+    restart: always
