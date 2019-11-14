@@ -87,6 +87,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /data/apps/logs:/logs
       - /data/files:/data/files
     links:
