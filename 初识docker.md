@@ -26,10 +26,10 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
   ```
 3.安装依赖包  
   ```
-  sudo apt-get install -y \\  
-    apt-transport-https \\  
-    ca-certificates \\  
-    curl \\  
+  sudo apt-get install -y \  
+    apt-transport-https \  
+    ca-certificates \  
+    curl \  
     software-properties-common  
   ```
 4.添加官方密钥  
@@ -45,16 +45,16 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
 5.添加仓库  
    建议用下面的国内源  
    ```
-   sudo add-apt-repository \\  
-   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \\  
-   $(lsb_release -cs) \\  
+   sudo add-apt-repository \  
+   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \  
+   $(lsb_release -cs) \  
    stable"
    ```
    以下为官方
    ```
-   sudo add-apt-repository \\  
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \\  
-   $(lsb_release -cs) \\  
+   sudo add-apt-repository \  
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \  
+   $(lsb_release -cs) \  
    stable"  
    ```
 6.再次更新软件  
