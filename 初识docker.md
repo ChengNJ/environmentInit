@@ -23,13 +23,6 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted univers
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse  
 #测试版源  
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse  
-#新增163 搭建vsftp的时候发现阿里云没有包
-deb http://mirrors.163.com/debian lenny main non-free contrib
-deb http://mirrors.163.com/debian lenny-proposed-updates main contrib non-free
-deb http://mirrors.163.com/debian-security lenny/updates main contrib non-free
-deb-src http://mirrors.163.com/debian lenny main non-free contrib
-deb-src http://mirrors.163.com/debian lenny-proposed-updates main contrib non-free
-deb-src http://mirrors.163.com/debian-security lenny/updates main contrib non-free
 
 执行更新  
 >sudo apt-get update  
