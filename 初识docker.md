@@ -20,66 +20,77 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
   ```
   passwd docker
   ```
-  
 2.更新系统软件  
-```
+  ```
   sudo apt-get update
-```
-  
+  ```
 3.安装依赖包  
-> sudo apt-get install -y \\  
+  ```
+  sudo apt-get install -y \\  
     apt-transport-https \\  
     ca-certificates \\  
     curl \\  
     software-properties-common  
-    
+  ```
 4.添加官方密钥  
   建议用下面的国内源,下载会更快  
-  > sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
-  
+  ```
+  sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+  ```
   以下为官方
-  > sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  
+  ```
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  ```
   执行可能需要小等一会，会出现ok  
 5.添加仓库  
    建议用下面的国内源  
-   > sudo add-apt-repository \\  
+   ```
+   sudo add-apt-repository \\  
    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \\  
    $(lsb_release -cs) \\  
    stable"
-   
+   ```
    以下为官方
-  > sudo add-apt-repository \\  
+   ```
+   sudo add-apt-repository \\  
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \\  
    $(lsb_release -cs) \\  
    stable"  
-   
+   ```
 6.再次更新软件  
-  >sudo apt-get update  
-
+  ```
+  sudo apt-get update  
+  ```
 7.安装docker  
-  >sudo apt-get install -y docker-ce  
-  
+  ```
+  sudo apt-get install -y docker-ce  
+  ```
   静等下载安装完成。  
 8.查看docker版本  
-  >docker -v  
-
+  ```
+  docker -v  
+  ```
 ## docker-compose安装(用于多个服务的启动)  
 可以使用apt安装，也采用python方式安装  
 apt：
->sudo apt-get install -y docker-compose
-
+  ```
+  sudo apt-get install -y docker-compose
+  ```
 python:
 1.装pip
-  >sudo apt-get install -y python-pip  
+  ```
+  sudo apt-get install -y python-pip  
   sudo pip install --upgrade setuptools  
   sudo pip install --upgrade pip  
-
+  ```
 2.安装docker-compose  
-  >sudo pip install docker-compose  
-  
+  ```
+  sudo pip install docker-compose  
+  ```
 查看版本  
-  >docker-compose --version  
+  ```
+  docker-compose --version  
+  ```
   
   
   
