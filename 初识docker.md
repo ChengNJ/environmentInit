@@ -19,7 +19,9 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
   >passwd docker
   
 2.更新系统软件  
-  >sudo apt-get update
+```
+  sudo apt-get update
+```
   
 3.安装依赖包  
 > sudo apt-get install -y \\  
