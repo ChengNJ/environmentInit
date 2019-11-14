@@ -21,8 +21,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-      - /data/mysql/mysql_data:/data/mysql/mysql_data
-      - /data/mysql/mysql_log:/data/mysql/mysql_log
+      - /data/mysql:/data/mysql
     ports:
       - 3306:3306
     restart: always
