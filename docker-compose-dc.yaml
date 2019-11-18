@@ -17,7 +17,7 @@ services:
 
   mysql:
     container_name: 'mysql'
-    image: drookie/center-mysql:1.0
+    image: drookie/center-mysql:1.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
