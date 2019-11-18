@@ -11,20 +11,20 @@ __Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用�
 Docker 将应用程序与该程序的依赖，打包在一个文件里面。运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了 Docker ，就不用担心环境问题。  
 总体来说， Docker 的接口相当简单，用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。  
 ## docker 安装
-1.卸载旧版docker（如果是全新安装的系统，无需执行）新建docker用户
+1. 卸载旧版docker（如果是全新安装的系统，无需执行）并新建docker用户
   ```
   sudo apt-get remove docker docker-engine docker.io
   adduser docker
   ```
-  有些版本会自动让填写密码已经相关信息 如果没有 运行下面命令修改密码  
+. 有些版本会自动让填写密码已经相关信息 如果没有 运行下面命令修改密码  
   ```
   passwd docker
   ```
-2.更新系统软件  
+. 更新系统软件  
   ```
   sudo apt-get update
   ```
-3.安装依赖包  
+.安装依赖包  
   ```
   sudo apt-get install -y \  
     apt-transport-https \  
