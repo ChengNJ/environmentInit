@@ -77,6 +77,9 @@ sudo docker-compose up -d
 ```
 即可后台启动所有配置服务
 
+## neo4j配置
+访问your ip:7474 进行修改neo4j密码
+ 默认是neo4j
 ## 调整配置
 基础配置
 模型配置
