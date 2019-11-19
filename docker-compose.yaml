@@ -1,5 +1,14 @@
 version: '2.0'
 services: 
+  portainer:
+    container_name: 'portainer'
+    image: portainer/portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9000:9000
+    restart: always
+    
   redis:
     container_name: 'redis'
     image: drookie/center-redis:1.0
