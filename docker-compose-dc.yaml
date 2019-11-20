@@ -32,7 +32,8 @@ services:
     volumes: 
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-      - /data/mongodb:/data/mongodb
+      - /data/mongodb/mongodb_data:/data/db
+      - /data/mongodb/mongodb_log:/data/mongodb/mongodb_log
     ports:
       - 27017:27017
     restart: always
