@@ -12,9 +12,6 @@ services:
   redis:
     container_name: 'redis'
     image: drookie/center-redis:1.2
-    command:
-      - redis-server
-      - /etc/redis.conf
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
