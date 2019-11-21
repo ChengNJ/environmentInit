@@ -11,7 +11,7 @@ services:
     
   redis:
     container_name: 'redis'
-    image: drookie/center-redis:1.0
+    image: drookie/center-redis:1.2
     command:
       - redis-server
       - /etc/redis.conf
@@ -26,22 +26,23 @@ services:
 
   mysql:
     container_name: 'mysql'
-    image: drookie/center-mysql:1.1
+    image: drookie/center-mysql:1.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-      - /data/mysql:/data/mysql
+      - /data/mysql/mysql_data:/data/mysql/mysql_data
+      - /data/mysql/mysql_log:/data/mysql/mysql_log
     ports:
       - 3306:3306
     restart: always
 
   mongodb:
     container_name: 'mongodb'
-    image: drookie/center-mongodb:1.1
+    image: drookie/center-mongodb:1.2
     volumes: 
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-      - /data/mongodb/mongodb_data:/data/db
+      - /data/mongodb/mongodb_data:/data/mongodb/mongodb_data
       - /data/mongodb/mongodb_log:/data/mongodb/mongodb_log
     ports:
       - 27017:27017
@@ -49,19 +50,19 @@ services:
 
   zookeeper:
     container_name: 'zookeeper'
-    image: drookie/center-zookeeper:1.0
+    image: drookie/center-zookeeper:1.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-      - /data/zookeeper/data:/data
-      - /data/zookeeper/datalog:/datalog
+      - /data/zookeeper/data:/data/zookeeper/data
+      - /data/zookeeper/datalog:/data/zookeeper/datalog
     ports:
       - 2181:2181
     restart: always
 
   kafka:
     container_name: 'kafka'
-    image: drookie/center-kafka:1.0
+    image: drookie/center-kafka:1.2
     links:
       - zookeeper
     ports:
@@ -70,7 +71,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-      - /data/kafka:/kafka
+      - /data/kafka/log:/data/kafka/log
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
@@ -84,8 +85,9 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
-      - /data/neo4j/data:/data
-    image: drookie/center-neo4j:1.0
+      - /data/neo4j/data:/data/neo4j/data
+      - /data/neo4j/logs:/data/neo4j/logs
+    image: drookie/center-neo4j:1.2
     ports:
       - 7474:7474
       - 7687:7687
@@ -109,7 +111,7 @@ services:
 
   nacos:
     container_name: 'nacos'
-    image: drookie/center-nacos:1.0
+    image: drookie/center-nacos:1.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -430,13 +432,13 @@ services:
       
   nginx:
     container_name: 'nginx'
-    image: drookie/center-nginx:1.1
+    image: drookie/center-nginx:1.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
       - /home/aitensor:/home/aitensor
       - /data/files:/data/files
-      - /data/nginx:/var/log/nginx
+      - /data/nginx/log:/data/nginx/log
     links:
       - gateway
       - datapush
