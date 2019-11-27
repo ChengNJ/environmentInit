@@ -180,7 +180,22 @@ services:
     ports:
       - 9524:9524
     restart: always
-      
+    
+  search:
+    container_name: 'search'
+    image: drookie/dc-apps-search:1.0
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /home/aitensor/lib:/home/aitensor/lib
+      - /home/aitensor/luceneIndex:/home/aitensor/luceneIndex
+      - /data/apps/logs:/logs
+      - /data/files:/data/files
+    ports:
+      - 9536:9536
+    restart: always
+    
   map:
     container_name: 'map'
     image: drookie/center-apps-map:1.0
