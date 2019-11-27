@@ -400,7 +400,7 @@ services:
 
   search:
     container_name: 'search'
-    image: drookie/center-apps-generic:3.2
+    image: drookie/center-apps-search:3.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
