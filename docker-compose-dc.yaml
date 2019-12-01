@@ -81,87 +81,9 @@ services:
       - 7474:7474
       - 7687:7687
     restart: always
-      
-  gateway:
-    container_name: 'gateway'
-    image: drookie/dc-apps-gateway:3.2
-    volumes:
-      - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
-      - /etc/hosts:/etc/hosts
-      - /data/apps/logs:/logs
-      - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-    ports:
-      - 9510:9510
-    restart: always
 
-  nacos:
-    container_name: 'nacos'
-    image: drookie/center-nacos:1.0
-    volumes:
-      - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
-      - /data/nacos/logs:/home/nacos/logs
-      - /data/nacos/data:/home/nacos/data
-    environment:
-      - MODE=standalone
-      - SPRING_DATASOURCE_PLATFORM=mysql
-      - MYSQL_DATABASE_NUM=1
-      - MYSQL_MASTER_SERVICE_HOST=mysql
-      - MYSQL_MASTER_SERVICE_PORT=3306
-      - MYSQL_MASTER_SERVICE_DB_NAME=nacos
-      - MYSQL_MASTER_SERVICE_USER=nacos
-      - MYSQL_MASTER_SERVICE_PASSWORD=nacos
-    links:
-      - mysql
-    ports:
-      - 8848:8848
-    restart: always
-
-  generic:
-    container_name: 'generic'
-    image: drookie/dc-apps-generic:3.2
-    volumes:
-      - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
-      - /etc/hosts:/etc/hosts
-      - /home/aitensor/lib:/home/aitensor/lib
-      - /data/apps/logs:/logs
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-    ports:
-      - 9512:9512
-    restart: always
-
-  auth:
-    container_name: 'auth'
-    image: drookie/dc-apps-auth:3.2
-    volumes:
-      - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
-      - /etc/hosts:/etc/hosts
-      - /home/aitensor/lib:/home/aitensor/lib
-      - /data/apps/logs:/logs
-      - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-    ports:
-      - 9513:9513
-    restart: always
-
-  address:
-    container_name: 'address'
+  dataCenter:
+    container_name: 'dataCenter'
     image: drookie/dc-apps-address:3.2
     volumes:
       - /etc/timezone:/etc/timezone
@@ -179,21 +101,6 @@ services:
       - neo4j
     ports:
       - 9524:9524
-    restart: always
-    
-  search:
-    container_name: 'search'
-    image: drookie/dc-apps-search:1.0
-    volumes:
-      - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
-      - /etc/hosts:/etc/hosts
-      - /home/aitensor/lib:/home/aitensor/lib
-      - /home/aitensor/luceneIndex:/home/aitensor/luceneIndex
-      - /data/apps/logs:/logs
-      - /data/files:/data/files
-    ports:
-      - 9536:9536
     restart: always
     
   map:
@@ -221,8 +128,6 @@ services:
       - /data/files:/data/files
       - /data/nginx:/var/log/nginx
     links:
-      - gateway
-      - datapush
       - map
     environment:
       - USB_KEY_URL=http://120.24.223.92:50036/
