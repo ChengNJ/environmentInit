@@ -38,7 +38,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
 4.添加官方密钥  
   建议用下面的国内源,下载会更快  ustc.edu.cn
   ```
-  sudo curl -k -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+  sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
   ```
   以下为官方
   ```
