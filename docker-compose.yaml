@@ -47,12 +47,24 @@ services:
 
   zookeeper:
     container_name: 'zookeeper'
-    image: drookie/center-zookeeper:1.2
+    image: zookeeper:3.4.14
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
       - /data/zookeeper/data:/data/zookeeper/data
       - /data/zookeeper/datalog:/data/zookeeper/datalog
+      - /data/zookeeper/logs:/data/zookeeper/logs
+    environment:
+      - ZOO_CONF_DIR=/conf
+      - ZOO_DATA_DIR=/data/zookeeper/data
+      - ZOO_DATA_LOG_DIR=/data/zookeeper/datalog
+      - ZOO_LOG_DIR=/data/zookeeper/logs
+      - ZOO_TICK_TIME=2000
+      - ZOO_INIT_LIMIT=5
+      - ZOO_SYNC_LIMIT=2
+      - ZOO_AUTOPURGE_PURGEINTERVAL=0
+      - ZOO_AUTOPURGE_SNAPRETAINCOUNT=3
+      - ZOO_MAX_CLIENT_CNXNS=60
     ports:
       - 2181:2181
     restart: always
