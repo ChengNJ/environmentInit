@@ -427,7 +427,7 @@ services:
       
   map:
     container_name: 'map'
-    image: drookie/center-apps-map:1.0
+    image: drookie/center-apps-map:1.2
     links:
       - mysql
       - mongodb
