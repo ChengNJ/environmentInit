@@ -93,7 +93,7 @@ services:
       
   gateway:
     container_name: 'gateway'
-    image: drookie/center-apps-gateway:3.2
+    image: drookie/center-apps-gateway:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -132,7 +132,7 @@ services:
 
   generic:
     container_name: 'generic'
-    image: drookie/center-apps-generic:3.2
+    image: drookie/center-apps-generic:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -151,7 +151,7 @@ services:
 
   auth:
     container_name: 'auth'
-    image: drookie/center-apps-auth:3.2
+    image: drookie/center-apps-auth:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -171,7 +171,7 @@ services:
 
   address:
     container_name: 'address'
-    image: drookie/center-apps-address:3.2
+    image: drookie/center-apps-address:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -192,7 +192,7 @@ services:
 
   device:
     container_name: 'device'
-    image: drookie/center-apps-device:3.2
+    image: drookie/center-apps-device:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -212,7 +212,7 @@ services:
 
   car:
     container_name: 'car'
-    image: drookie/center-apps-car:3.2
+    image: drookie/center-apps-car:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -233,7 +233,7 @@ services:
 
   face-monitor:
     container_name: 'face-monitor'
-    image: drookie/center-apps-face-monitor:3.2
+    image: drookie/center-apps-face-monitor:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -254,7 +254,7 @@ services:
 
   track:
     container_name: 'track'
-    image: drookie/center-apps-track:3.2
+    image: drookie/center-apps-track:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -275,7 +275,7 @@ services:
 
   datapush:
     container_name: 'datapush'
-    image: drookie/center-apps-datapush:3.2
+    image: drookie/center-apps-datapush:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -296,7 +296,7 @@ services:
 
   pms:
     container_name: 'pms'
-    image: drookie/center-apps-pms:3.2
+    image: drookie/center-apps-pms:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -317,7 +317,7 @@ services:
 
   video:
     container_name: 'video'
-    image: drookie/center-apps-video:3.2
+    image: drookie/center-apps-video:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -338,7 +338,7 @@ services:
 
   open-api:
     container_name: 'open-api'
-    image: drookie/center-apps-open-api:3.2
+    image: drookie/center-apps-open-api:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -358,7 +358,7 @@ services:
 
   face-recognize:
     container_name: 'face-recognize'
-    image: drookie/center-apps-face-recognize:3.2
+    image: drookie/center-apps-face-recognize:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -379,7 +379,7 @@ services:
 
   police:
     container_name: 'police'
-    image: drookie/center-apps-police:3.2
+    image: drookie/center-apps-police:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -400,7 +400,7 @@ services:
 
   search:
     container_name: 'search'
-    image: drookie/center-apps-search:3.2
+    image: drookie/center-apps-search:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
