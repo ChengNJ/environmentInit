@@ -7,6 +7,7 @@ services:
       - redis-server
       - /etc/redis.conf
     volumes:
+      - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
       - /data/redis/redis_lib:/data/redis/redis_lib
       - /data/redis/redis_log:/data/redis/redis_log
@@ -18,6 +19,8 @@ services:
     container_name: 'mysql'
     image: drookie/center-mysql:1.2
     volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
       - /data/mysql/mysql_data:/data/mysql/mysql_data
       - /data/mysql/mysql_log:/data/mysql/mysql_log
     ports:
@@ -29,6 +32,7 @@ services:
     image: drookie/center-mongodb:1.2
     volumes: 
       - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
       - /data/mongodb/mongodb_data:/data/db
       - /data/mongodb/mongodb_log:/data/mongodb/mongodb_log
     ports:
@@ -40,6 +44,7 @@ services:
     image: drookie/center-zookeeper:1.2
     volumes:
       - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
       - /data/zookeeper/data:/data
       - /data/zookeeper/datalog:/datalog
     ports:
@@ -56,6 +61,7 @@ services:
       - 9094:9094
     volumes:
       - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
       - /data/kafka:/kafka
     environment:
       - KAFKA_BROKER_ID=1
@@ -70,6 +76,7 @@ services:
     container_name: 'neo4j'
     volumes:
       - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
       - /data/neo4j/data:/data/neo4j/data
       - /data/neo4j/logs:/data/neo4j/logs
     image: drookie/center-neo4j:1.2
@@ -83,6 +90,7 @@ services:
     image: drookie/data-center:1.0
     volumes:
       - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
       - /etc/hosts:/etc/hosts
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
@@ -105,6 +113,7 @@ services:
       - mongodb
     volumes:
       - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
       - /etc/hosts:/etc/hosts
       - /data/apps/logs:/logs
     ports:
@@ -116,6 +125,7 @@ services:
     image: drookie/center-nginx:1.2
     volumes:
       - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
       - /home/aitensor:/home/aitensor
       - /data/files:/data/files
       - /data/nginx:/var/log/nginx
