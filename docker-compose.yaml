@@ -81,6 +81,7 @@ services:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
       - /data/kafka/log:/data/kafka/log
+      - /data/kafka/logs:/opt/kafka/logs
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
