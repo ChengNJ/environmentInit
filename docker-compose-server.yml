@@ -1,1 +1,201 @@
+version: '2.0'
+services: 
+  portainer:
+    container_name: 'portainer'
+    image: portainer/portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9000:9000
+    restart: always
+    
+  redis:
+    container_name: 'redis'
+    image: drookie/center-redis:1.2
+    command:
+      - /redis-server
+      - /etc/redis.conf
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/redis/redis_lib:/data/redis/redis_lib
+      - /data/redis/redis_log:/data/redis/redis_log
+    ports:
+      - 6379:6379
+    networks:
+      - center
+    restart: always
 
+  mysql:
+    container_name: 'mysql'
+    image: drookie/center-mysql:1.2
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/mysql/mysql_data:/data/mysql/mysql_data
+      - /data/mysql/mysql_log:/data/mysql/mysql_log
+    ports:
+      - 3306:3306
+    networks:
+      - center
+    restart: always
+
+  mongodb:
+    container_name: 'mongodb'
+    image: drookie/center-mongodb:1.2
+    volumes: 
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/mongodb/mongodb_data:/data/mongodb/mongodb_data
+      - /data/mongodb/mongodb_log:/data/mongodb/mongodb_log
+    ports:
+      - 27017:27017
+    networks:
+      - center
+    restart: always
+
+  zookeeper:
+    container_name: 'zookeeper'
+    image: zookeeper:3.4.14
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/zookeeper/data:/data/zookeeper/data
+      - /data/zookeeper/datalog:/data/zookeeper/datalog
+      - /data/zookeeper/logs:/data/zookeeper/logs
+    environment:
+      - ZOO_CONF_DIR=/conf
+      - ZOO_DATA_DIR=/data/zookeeper/data
+      - ZOO_DATA_LOG_DIR=/data/zookeeper/datalog
+      - ZOO_LOG_DIR=/data/zookeeper/logs
+      - ZOO_TICK_TIME=2000
+      - ZOO_INIT_LIMIT=5
+      - ZOO_SYNC_LIMIT=2
+      - ZOO_AUTOPURGE_PURGEINTERVAL=0
+      - ZOO_AUTOPURGE_SNAPRETAINCOUNT=3
+      - ZOO_MAX_CLIENT_CNXNS=60
+    ports:
+      - 2181:2181
+    networks:
+      - center
+    restart: always
+
+  kafka:
+    container_name: 'kafka'
+    image: drookie/center-kafka:1.2
+    links:
+      - zookeeper
+    ports:
+      - 9092:9092
+      - 9094:9094
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/kafka/log:/data/kafka/log
+      - /data/kafka/logs:/opt/kafka/logs
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      - KAFKA_LISTENERS=INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:9094
+      - KAFKA_ADVERTISED_LISTENERS=INSIDE://:9092,OUTSIDE://192.168.10.38:9094
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_LOG_DIRS=/data/kafka/log
+    networks:
+      - center
+    restart: always
+
+  neo4j:
+    container_name: 'neo4j'
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/neo4j/data:/data/neo4j/data
+      - /data/neo4j/logs:/data/neo4j/logs
+    image: drookie/center-neo4j:1.2
+    ports:
+      - 7474:7474
+      - 7687:7687
+    networks:
+      - center
+    restart: always
+      
+  gateway:
+    container_name: 'gateway'
+    image: drookie/center-apps-gateway:3.2.1
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /data/apps/logs:/logs
+      - /data/files:/data/files
+    links:
+      - mysql
+      - nacos
+    ports:
+      - 9510:9510
+    networks:
+      - center
+    restart: always
+
+  nacos:
+    container_name: 'nacos'
+    image: drookie/center-nacos:1.2
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/nacos/logs:/home/nacos/logs
+      - /data/nacos/data:/home/nacos/data
+    environment:
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_DATABASE_NUM=1
+      - MYSQL_MASTER_SERVICE_HOST=mysql
+      - MYSQL_MASTER_SERVICE_PORT=3306
+      - MYSQL_MASTER_SERVICE_DB_NAME=nacos
+      - MYSQL_MASTER_SERVICE_USER=nacos
+      - MYSQL_MASTER_SERVICE_PASSWORD=nacos
+    links:
+      - mysql
+    ports:
+      - 8848:8848
+    networks:
+      - center
+    restart: always
+    
+  search:
+    container_name: 'search'
+    image: drookie/center-apps-search:3.2.1
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /data/luceneIndex:/home/aitensor/luceneIndex
+      - /data/apps/logs:/logs
+      - /data/files:/data/files
+    ports:
+      - 9536:9536
+    networks:
+      - center
+    restart: always
+      
+  map:
+    container_name: 'map'
+    image: drookie/center-apps-map:1.2
+    links:
+      - mysql
+      - mongodb
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /data/apps/logs:/logs
+    ports:
+      - 9999:9999
+    networks:
+      - center
+    restart: always
+
+networks:
+  center:
+    driver: bridge
