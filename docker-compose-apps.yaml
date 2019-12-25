@@ -10,12 +10,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
     ports:
       - 9512:9512
     networks:
@@ -32,12 +26,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
     ports:
       - 9513:9513
     networks:
@@ -54,13 +42,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - neo4j
     ports:
       - 9524:9524
     networks:
@@ -77,12 +58,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
     ports:
       - 9525:9525
     networks:
@@ -99,13 +74,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9531:9531
     networks:
@@ -122,13 +90,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9530:9530
     networks:
@@ -145,13 +106,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9528:9528
     networks:
@@ -168,13 +122,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9526:9526
     networks:
@@ -191,13 +138,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9532:9532
     networks:
@@ -214,13 +154,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9533:9533
     networks:
@@ -237,12 +170,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
     ports:
       - 9534:9534
     networks:
@@ -259,13 +186,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9523:9523
     networks:
@@ -282,13 +202,6 @@ services:
       - /home/aitensor/lib:/home/aitensor/lib
       - /data/apps/logs:/logs
       - /data/files:/data/files
-    links:
-      - mysql
-      - nacos
-      - redis
-      - kafka
-      - zookeeper
-      - mongodb
     ports:
       - 9535:9535
     networks:
@@ -304,10 +217,7 @@ services:
       - /home/aitensor:/home/aitensor
       - /data/files:/data/files
       - /data/nginx/log:/data/nginx/log
-    links:
-      - gateway
-      - datapush
-      - map
+      - /data/nginx/conf.d:/etc/nginx/conf.d
     environment:
       - USB_KEY_URL=http://120.24.223.92:50036/
       - VUE_HOME=/home/aitensor/apps/vue
