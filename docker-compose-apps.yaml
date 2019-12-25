@@ -214,6 +214,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
       - /home/aitensor:/home/aitensor
       - /data/files:/data/files
       - /data/nginx/log:/data/nginx/log
