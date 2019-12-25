@@ -198,4 +198,4 @@ services:
 
 networks:
   center:
-    driver: bridge
+    external: true
