@@ -197,6 +197,44 @@ services:
     restart: always
   nginx:
     container_name: 'nginx'
+    image: drookie/center-nginx-fdfs:1.2
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /etc/hosts:/etc/hosts
+      - /home/aitensor:/home/aitensor
+      - /data/files:/data/files
+      - /data/nginx/log:/data/nginx/log
+      - /data/nginx/conf.d:/etc/nginx/conf.d
+      - /data/nginx/fdfs:/etc/fdfs
+    environment:
+      - USB_KEY_URL=http://120.24.223.92:50036/
+      - VUE_HOME=/home/aitensor/apps/vue
+      - MOCK_URL=http://192.168.10.118:3300
+      - LOCAL_FILES_HOME=/data/files/images/
+      - IMAGES_HOME=/data/files/images/
+      - FDFS_CLIENT_BASE_PATH=/data/fdfs
+      - FDFS_TRACKER_BASE_PATH=/data/fdfs/tracker
+      - FDFS_TRACKER_PORT=22122
+      - FDFS_TRACKER_SERVER=192.168.10.141:22122
+      - FDFS_STORAGE_PORT=23000
+      - FDFS_STORAGE_HTTP_SERVER_PORT=8888
+      - FDFS_STORAGE_BASE_PATH=/data/fdfs/storage
+      - FDFS_STORAGE_STORE_PATH0=/data/fdfs/storage
+    ports:
+      - 80:80
+    networks:
+      - center
+    restart: always
+networks:
+  center:
+    external: true
+    
+    
+    
+    
+  nginx:
+    container_name: 'nginx'
     image: drookie/center-nginx:1.2
     volumes:
       - /etc/timezone:/etc/timezone
@@ -217,6 +255,3 @@ services:
     networks:
       - center
     restart: always
-networks:
-  center:
-    external: true
