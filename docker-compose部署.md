@@ -60,13 +60,17 @@ scp -P port -rf vue aitensor:ip/home/aitensor/apps/vue
 ## 添加hosts
 编辑在/etc/hosts 追加以下内容 并将ip改成宿机ip
 ```
-192.168.1.13       mysql.aitensor.com  
-192.168.1.13      mongodb.aitensor.com  
-192.168.1.13      redis.aitensor.com  
-192.168.1.13   kafka.aitensor.com  
+192.168.1.13    mysql.aitensor.com  
+192.168.1.13    mongodb.aitensor.com  
+192.168.1.13    redis.aitensor.com  
+192.168.1.13    kafka.aitensor.com  
 192.168.1.13    regcenter.aitensor.com  
 192.168.1.13    fastdfs.aitensor.com  
 192.168.1.13    neo4j.aitensor.com  
+192.168.1.13    gateway.aitensor.com
+192.168.1.13    datapush.aitensor.com
+192.168.1.13    map.aitensor.com
+
 ```
 
 ## 用root使用docker-compose 进行启动
