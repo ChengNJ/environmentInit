@@ -207,7 +207,8 @@ services:
       - /data/nginx/log:/data/nginx/log
       - /data/nginx/conf.d:/etc/nginx/conf.d
       - /data/nginx/fdfs:/etc/fdfs
-      - /data/fdfs:/data/fdfs
+      - /data/fdfs/tracker:/data/fdfs/tracker
+      - /data/fdfs/storage:/data/fdfs/storage
     environment:
       - USB_KEY_URL=http://120.24.223.92:50036/
       - VUE_HOME=/home/aitensor/apps/vue
