@@ -8,6 +8,47 @@ services:
     ports:
       - 9000:9000
     restart: always
+  featureService:
+    container_name: 'featureService'
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/feature-service:1.0
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /data/featureService:/data/featureService
+      - /opt:/opt
+    ports:
+      - 5000:5000
+      - 20326:20326
+      - 20327:20327
+      - 20328:20328
+      - 20329:20329
+    environment:
+      - LOCAL_PORT=5000
+      - LOG_LEVEL=0
+      - LOG_PATH="/data/featureService/log"
+      - THREAD_POOL_NUM=4
+      - FACE_INSTANCE=2
+      - DEEP_INSTANCE=1
+      - REDIS_IP=127.0.0.1
+      - REDIS_PORT=6379
+      - REDIS_PWD=aitensor@2018
+      - MODEL_PATH="/usr/local/featureService/caffe"
+      - SERVICE_VERSION=2
+      - LOCAL_VERSION=2
+      - PLUGIN_PATH="/usr/local/featureService/plugin"
+      - RACE_TARGET="cpu"
+      - M001_ENABLE=true
+      - M001_REMOTE_IP="192.168.10.135"
+      - M001_REMOTE_PORT=30332
+      - M001_INSTANCE=2
+      - M002_ENABLE=true
+      - M002_REMOTE_IP="192.168.10.135"
+      - M002_REMOTE_PORT=30332
+      - M002_INSTANCE=1
+      - MAX_LABLES=200000
+    networks:
+      - center
+    restart: always
     
   redis:
     container_name: 'redis'
