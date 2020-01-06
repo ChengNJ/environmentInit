@@ -104,7 +104,19 @@ services:
     networks:
       - center
     restart: always
-
+    
+  kafka-manager:
+    image: sheepkiller/kafka-manager:latest
+    ports:
+      - "9000:9000"
+    links:
+      - zookeeper
+      - kafka
+    environment:
+      - ZK_HOSTS: zookeeper:2181
+      - APPLICATION_SECRET: aitensor
+      - KM_ARGS: -Djava.net.preferIPv4Stack=true
+    
   neo4j:
     container_name: 'neo4j'
     volumes:
