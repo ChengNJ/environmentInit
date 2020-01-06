@@ -113,9 +113,9 @@ services:
       - zookeeper
       - kafka
     environment:
-      - ZK_HOSTS: zookeeper:2181
-      - APPLICATION_SECRET: aitensor
-      - KM_ARGS: -Djava.net.preferIPv4Stack=true
+      ZK_HOSTS: zookeeper:2181
+      APPLICATION_SECRET: aitensor
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
     
   neo4j:
     container_name: 'neo4j'
