@@ -11,7 +11,7 @@ services:
     
   redis:
     container_name: 'redis'
-    image: drookie/center-redis:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-redis:1.2
     command:
       - redis-server
       - /etc/redis.conf
@@ -28,7 +28,7 @@ services:
 
   mysql:
     container_name: 'mysql'
-    image: drookie/center-mysql:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-mysql:1.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -42,7 +42,7 @@ services:
 
   mongodb:
     container_name: 'mongodb'
-    image: drookie/center-mongodb:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-mongodb:1.2
     volumes: 
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -82,7 +82,7 @@ services:
 
   kafka:
     container_name: 'kafka'
-    image: drookie/center-kafka:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-kafka:1.2
     links:
       - zookeeper
     ports:
@@ -112,7 +112,7 @@ services:
       - /etc/localtime:/etc/localtime
       - /data/neo4j/data:/data/neo4j/data
       - /data/neo4j/logs:/data/neo4j/logs
-    image: drookie/center-neo4j:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-neo4j:1.2
     ports:
       - 7474:7474
       - 7687:7687
@@ -122,7 +122,7 @@ services:
       
   gateway:
     container_name: 'gateway'
-    image: drookie/center-apps-gateway:3.2.1
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-apps-gateway:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -140,7 +140,7 @@ services:
 
   nacos:
     container_name: 'nacos'
-    image: drookie/center-nacos:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-nacos:1.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -165,7 +165,7 @@ services:
     
   search:
     container_name: 'search'
-    image: drookie/center-apps-search:3.2.1
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-apps-search:3.2.1
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -181,7 +181,7 @@ services:
       
   map:
     container_name: 'map'
-    image: drookie/center-apps-map:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-apps-map:1.2
     links:
       - mysql
       - mongodb
@@ -197,7 +197,7 @@ services:
     restart: always
   nginx:
     container_name: 'nginx'
-    image: drookie/center-nginx-fdfs:1.2
+    image: registry.cn-hangzhou.aliyuncs.com/aitensor-hub/center-nginx-fdfs:1.2
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
