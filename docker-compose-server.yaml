@@ -15,6 +15,7 @@ services:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
       - /data/featureService:/data/featureService
+      - /data/folderMonitor:/data/folderMonitor
       - /opt:/opt
     ports:
       - 5000:5000
