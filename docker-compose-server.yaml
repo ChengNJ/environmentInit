@@ -16,6 +16,7 @@ services:
       - /etc/localtime:/etc/localtime
       - /data/featureService:/data/featureService
       - /data/folderMonitor:/data/folderMonitor
+      - /data/ftp:/data/ftp
       - /opt:/opt
     ports:
       - 5000:5000
