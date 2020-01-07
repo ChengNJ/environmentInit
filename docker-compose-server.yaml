@@ -48,7 +48,7 @@ services:
       - M002_INSTANCE=1
       - MAX_LABLES=200000
       - MONITOR_SERVER="127.0.0.1"
-      - MONITOR_PORT="80"
+      - MONITOR_PORT=80
       - MONITOR_LOGIN_TARGET="/api/auth/app/token"
       - MONITOR_FACE_POST_TARGET="/api/faceRec/images/batchUpload"
       - MONITOR_CAR_POST_TARGET="/api/car/passRecords/ftpUpload"
