@@ -46,6 +46,18 @@ services:
       - M002_REMOTE_PORT=30332
       - M002_INSTANCE=1
       - MAX_LABLES=200000
+      - MONITOR_SERVER="127.0.0.1"
+      - MONITOR_PORT="80"
+      - MONITOR_LOGIN_TARGET="/api/auth/app/token"
+      - MONITOR_FACE_POST_TARGET="/api/faceRec/images/batchUpload"
+      - MONITOR_CAR_POST_TARGET="/api/car/passRecords/ftpUpload"
+      - MONITOR_APP_KEY="community-ftp-001"
+      - MONITOR_APP_SECRET="123456"
+      - MONITOR_LOG_PATH="/data/folderMonitor/logs"
+      - MONITOR_DELETE=0
+      - MONITOR_POST_SUCCESS_FOLDER="/data/folderMonitor/success"
+      - MONITOR_EMPTY_FILE_FOLDER="/data/folderMonitor/empty"
+      - MONITOR_EXTRA_FILE_FOLDER="/data/folderMonitor/extra"
     networks:
       - center
     restart: always
